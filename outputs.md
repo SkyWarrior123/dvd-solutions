@@ -160,3 +160,96 @@ Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 4.43s (4.39s CPU ti
 
 Ran 1 test suite in 4.43s (4.43s CPU time): 1 tests passed, 0 failed, 0 skipped (1 total tests)
 ```
+
+- Selfie
+
+```shell
+ahbaazs-MacBook-Air:test skywarrior$ forge test --match-test test_selfie -vv
+[⠊] Compiling...
+[⠑] Compiling 2 files with Solc 0.8.25
+[⠘] Solc 0.8.25 finished in 2.63s
+Compiler run successful with warnings:
+Warning (6321): Unnamed return variable can remain unassigned. Add an explicit return with value to all non-reverting code paths or name the variable.
+  --> test/selfie/Attack.sol:45:63:
+   |
+45 |     function exploitSetup(address recovery) external returns (bool) {
+   |                                                               ^^^^
+
+Warning (6321): Unnamed return variable can remain unassigned. Add an explicit return with value to all non-reverting code paths or name the variable.
+  --> test/selfie/Attack.sol:51:49:
+   |
+51 |     function exploitCloseup() external returns (bool) {
+   |                                                 ^^^^
+
+Warning (5667): Unused function parameter. Remove or comment out the variable name to silence this warning.
+  --> test/selfie/Attack.sol:30:26:
+   |
+30 |     function onFlashLoan(address initiator, address token,uint amount, uint fee, bytes calldata data) 
+   |                          ^^^^^^^^^^^^^^^^^
+
+Warning (2072): Unused local variable.
+  --> test/selfie/Attack.sol:52:9:
+   |
+52 |         bytes memory resultData = simpleGovernance.executeAction(actionId);
+   |         ^^^^^^^^^^^^^^^^^^^^^^^
+
+
+Ran 1 test for test/selfie/Selfie.t.sol:SelfieChallenge
+[PASS] test_selfie() (gas: 748158)
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 8.94ms (1.55ms CPU time)
+
+Ran 1 test suite in 251.85ms (8.94ms CPU time): 1 tests passed, 0 failed, 0 skipped (1 total tests)
+```
+
+- Compromised
+
+```index.js
+Sahbaazs-MacBook-Air:compromised skywarrior$ node index.js 
+Private Key: 0x7d15bba26c523683bfc3dc7cdc5d1b8a2744447597cf4da1705cf6c993063744
+Wallet address: 0x188Ea627E3531Db590e6f1D71ED83628d1933088
+Private Key: 0x68bd020ad186b647a691c6a5c0c1529f21ecd09dcc45241402ac60ba377c4159
+Wallet address: 0xA417D473c40a4d42BAd35f147c21eEa7973539D8
+```
+
+```shell
+Sahbaazs-MacBook-Air:test skywarrior$ forge test --match-test test_compromised -vv
+[⠊] Compiling...
+[⠃] Compiling 3 files with Solc 0.8.25
+[⠊] Solc 0.8.25 finished in 2.86s
+Compiler run successful with warnings:
+Warning (5667): Unused function parameter. Remove or comment out the variable name to silence this warning.
+  --> test/compromised/Attack.sol:48:9:
+   |
+48 |         address operator, 
+   |         ^^^^^^^^^^^^^^^^
+
+Warning (5667): Unused function parameter. Remove or comment out the variable name to silence this warning.
+  --> test/compromised/Attack.sol:49:9:
+   |
+49 |         address from, 
+   |         ^^^^^^^^^^^^
+
+Warning (5667): Unused function parameter. Remove or comment out the variable name to silence this warning.
+  --> test/compromised/Attack.sol:50:9:
+   |
+50 |         uint256 tokenId, 
+   |         ^^^^^^^^^^^^^^^
+
+Warning (5667): Unused function parameter. Remove or comment out the variable name to silence this warning.
+  --> test/compromised/Attack.sol:51:9:
+   |
+51 |         bytes calldata data
+   |         ^^^^^^^^^^^^^^^^^^^
+
+Warning (2018): Function state mutability can be restricted to pure
+  --> test/compromised/Attack.sol:47:5:
+   |
+47 |     function onERC721Received(
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+
+Ran 1 test for test/compromised/Compromised.t.sol:CompromisedChallenge
+[PASS] test_compromised() (gas: 519349)
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 9.35ms (1.44ms CPU time)
+```
+
