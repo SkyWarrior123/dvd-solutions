@@ -1,59 +1,131 @@
-# Damn Vulnerable DeFi
+# 🚀 Damn Vulnerable DeFi (DVD) - Security Challenges  
 
-Damn Vulnerable DeFi is _the_ smart contract security playground for developers, security researchers and educators.
+Welcome to **Damn Vulnerable DeFi (DVD) Solutions**, a smart contract security playground where developers, security researchers, and educators can test, audit, and exploit vulnerabilities in **realistic DeFi scenarios**.
 
-Perhaps the most sophisticated vulnerable set of Solidity smart contracts ever witnessed, it features flashloans, price oracles, governance, NFTs, DEXs, lending pools, smart contract wallets, timelocks, vaults, meta-transactions, token distributions, upgradeability and more.
+Perhaps the most sophisticated **set of vulnerable Solidity smart contracts** ever witnessed, this project features **flash loans, price oracles, governance exploits, NFTs, DEX manipulation, lending pools, smart contract wallets, upgradeability flaws**, and much more.
 
-Use Damn Vulnerable DeFi to:
+## 🛠 Why DVD?  
 
-- Sharpen your auditing and bug-hunting skills.
-- Learn how to detect, test and fix flaws in realistic scenarios to become a security-minded developer.
-- Benchmark smart contract security tooling.
-- Create educational content on smart contract security with articles, tutorials, talks, courses, workshops, trainings, CTFs, etc. 
+✅ **Sharpen your auditing and bug-hunting skills**  
+✅ **Detect, test, and fix security flaws** in realistic smart contract environments  
+✅ **Benchmark smart contract security tooling**  
+✅ **Create educational content** (articles, tutorials, talks, CTFs, and courses)  
 
-## Install
+---
 
-1. Clone the repository.
-2. Checkout the latest release (for example, `git checkout v4.0.1`)
-3. Rename the `.env.sample` file to `.env` and add a valid RPC URL. This is only needed for the challenges that fork mainnet state.
-4. Either install [Foundry](https://book.getfoundry.sh/getting-started/installation), or use the [provided devcontainer](./.devcontainer/) (In VSCode, open the repository as a devcontainer with the command "Devcontainer: Open Folder in Container...")
-5. Run `forge build` to initialize the project.
+## 🗂 Table of Contents  
 
-## Usage
+- [🚀 Challenges](#-challenges)  
+- [📏 Invariants & Security Considerations](#-invariants--security-considerations)  
+- [🧪 Tests & Project Structure](#-tests--project-structure)  
+- [📖 Solutions](#-solutions)  
+- [🚀 Getting Started](#-getting-started)  
+- [📌 Navigation in GitHub](#-navigation-in-github)  
+- [🤝 Contributing](#-contributing)  
+- [📜 License](#-license)  
 
-Each challenge is made up of:
+---
 
-- A prompt located in `src/<challenge-name>/README.md`.
-- A set of contracts located in `src/<challenge-name>/`.
-- A [Foundry test](https://book.getfoundry.sh/forge/tests) located in `test/<challenge-name>/<ChallengeName>.t.sol`.
+## 🚀 Challenges  
 
+Each challenge is designed to **exploit a critical vulnerability** in a smart contract, breaking its invariants and showcasing **real-world attack vectors**.
+
+| **Challenge**    | **Exploit Type**                 | **Broken Invariant** |
+|-----------------|---------------------------------|----------------------|
+| **Unstoppable** | Flash loan disruption           | Pool balance consistency |
+| **NaiveReceiver** | Fee drain attack              | User-controlled transactions |
+| **Truster** | Arbitrary call execution          | Access control of approvals |
+| **SideEntrance** | Flash loan with deposit trick | Loan repayment tracking |
+| **TheRewarder** | Reward timing manipulation     | Fair reward distribution |
+| **Selfie** | Governance takeover with flash loans | Genuine governance participation |
+| **Compromised** | Oracle key leak                | Oracle price integrity |
+
+---
+
+## 📏 Invariants & Security Considerations  
+
+Smart contracts rely on **invariants** to ensure correctness and security. This repository explores **how breaking these invariants leads to financial losses**.
+
+| **Category**       | **Invariant** | **Broken in** |
+|-------------------|-------------|--------------|
+| **Balance Consistency** | Pool balance should match recorded deposits | Unstoppable, SideEntrance |
+| **Access Control** | Only privileged roles can execute key functions | Truster, Selfie |
+| **Oracle Integrity** | Price feeds should be tamper-proof | Compromised |
+| **State Consistency** | Loan repayments must be correctly tracked | NaiveReceiver, SideEntrance |
+| **Governance Security** | Voting should require genuine ownership | Selfie |
+| **Fair Reward Distribution** | Rewards should be evenly distributed | TheRewarder |
+
+---
+
+## 🧪 Tests & Project Structure  
+
+Each challenge has **dedicated test cases** in **Foundry** to validate exploits.  
+
+### 📁 Project Structure  
+
+. ├── contracts/ │ ├── Unstoppable.sol │ ├── NaiveReceiver.sol │ ├── Truster.sol │ ├── SideEntrance.sol │ ├── TheRewarder.sol │ ├── Selfie.sol │ ├── Compromised.sol ├── tests/ │ ├── unstoppable/Unstoppable.t.sol │ ├── naive-receiver/NaiveReceiver.t.sol │ ├── truster/Truster.t.sol │ ├── side-entrance/SideEntrance.t.sol │ ├── the-rewarder/TheRewarder.t.sol │ ├── selfie/Selfie.t.sol │ └── compromised/Compromised.t.sol └── README.md
+
+
+Each test ensures the exploit **successfully breaks the protocol**.
+
+---
+
+## 📖 Solutions  
+
+The **detailed solutions** and **proof-of-concepts (PoCs)** for these challenges are available in the GitHub repository.  
+
+🔗 **Check out the solutions and PoCs**:  
+👉 [https://github.com/SkyWarrior123/dvd-solutions/](https://github.com/SkyWarrior123/dvd-solutions/)  
+
+---
+
+## 🚀 Getting Started  
+
+### 🔧 Installation  
+
+1️⃣ **Clone the repository**  
+```bash
+git clone https://github.com/SkyWarrior123/dvd-solutions.git
+cd dvd-solutions
+```
+2️⃣ Set up the environment
+```
+cp .env.sample .env
+# Add a valid RPC URL for mainnet forking challenges
+```
+3️⃣ Install Foundry
+```
+curl -L https://foundry.paradigm.xyz | bash
+foundryup
+```
+4️⃣ Build the project
+```
+forge build
+```
+📌 Navigation in GitHub
+
+Each challenge is structured with:
+```
+    A README.md inside src/<challenge-name>/ explaining the vulnerability.
+    A smart contract inside src/<challenge-name>/ with the exploit target.
+    A Foundry test inside test/<challenge-name>/ to validate the exploit.
+```
 To solve a challenge:
 
-1. Read the challenge's prompt.
-2. Uncover the flaw(s) in the challenge's smart contracts.
-3. Code your solution in the corresponding test file.
-4. Try your solution with `forge test --mp test/<challenge-name>/<ChallengeName>.t.sol`.
+1️⃣ Read the challenge description in the src/<challenge-name>/README.md file.
+2️⃣ Analyze the flaw in the smart contract located inside src/<challenge-name>/.
+3️⃣ Write an exploit in the corresponding test file.
+4️⃣ Run tests to confirm the exploit worked:
+```
+forge test --mp test/<challenge-name>/<ChallengeName>.t.sol
+```
+5️⃣ Use --isolate if transaction limits apply.
 
-> In challenges that restrict the number of transactions, you might need to run the test with the `--isolate` flag.
+If the test passes, the challenge is solved! ✅
 
-If the test passes, you've solved the challenge!
+ONLY FOR EDUCATIONAL PURPOSES
 
-Challenges may have more than one possible solution.
+📌 For more details, visit:
+👉 https://github.com/SkyWarrior123/dvd-solutions/
 
-### Rules
-
-- You must always use the `player` account.
-- You must not modify the challenges' initial nor final conditions.
-- You can code and deploy your own smart contracts.
-- You can use Foundry's cheatcodes to advance time when necessary.
-- You can import external libraries that aren't installed, although it shouldn't be necessary.
-
-## Troubleshooting
-
-You can ask the community for help in [the discussions section](https://github.com/theredguild/damn-vulnerable-defi/discussions).
-
-## Disclaimer
-
-All code, practices and patterns in this repository are DAMN VULNERABLE and for educational purposes only.
-
-DO NOT USE IN PRODUCTION.
+Stay secure! 🚀
