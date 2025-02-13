@@ -1,4 +1,4 @@
-# 🚀 Damn Vulnerable DeFi (DVD) - Security Challenges  
+# 🚀 Damn Vulnerable DeFi (DVD) - Solutions to Security Challenges  
 
 Welcome to **Damn Vulnerable DeFi (DVD) Solutions**, a smart contract security playground where developers, security researchers, and educators can test, audit, and exploit vulnerabilities in **realistic DeFi scenarios**.
 
