@@ -253,3 +253,46 @@ Ran 1 test for test/compromised/Compromised.t.sol:CompromisedChallenge
 Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 9.35ms (1.44ms CPU time)
 ```
 
+- Puppet 
+
+
+- Puppet V2
+
+```shell
+bash-5.2$ forge test test/puppet-v2/PuppetV2.t.sol --mt test_puppetV2 
+[⠒] Compiling...
+[⠒] Compiling 4 files with Solc 0.8.25
+[⠑] Solc 0.8.25 finished in 2.56s
+Compiler run successful with warnings:
+Warning (2072): Unused local variable.
+   --> test/puppet-v2/PuppetV2.t.sol:114:9:
+    |
+114 |         uint256 depositWETHRequired = lendingPool.calculateDepositOfWETHRequired(poolBalance);
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+Ran 1 test for test/puppet-v2/PuppetV2.t.sol:PuppetV2Challenge
+[PASS] test_puppetV2() (gas: 298621)
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 15.69ms (2.20ms CPU time)
+
+Ran 1 test suite in 283.16ms (15.69ms CPU time): 1 tests passed, 0 failed, 0 skipped (1 total tests)
+```
+
+- Puppet V3
+
+```shell
+bash-5.2$ export MAINNET_FORKING_URL=https://mainnet.infura.io/v3/07251588d0234f009a72d2ff44be9c77
+bash-5.2$    echo $MAINNET_FORKING_URL
+https://mainnet.infura.io/v3/07251588d0234f009a72d2ff44be9c77
+bash-5.2$ forge test test/puppet-v3/PuppetV3.t.sol --mt test_puppetV3
+[⠒] Compiling...
+No files changed, compilation skipped
+
+Ran 1 test for test/puppet-v3/PuppetV3.t.sol:PuppetV3Challenge
+[PASS] test_puppetV3() (gas: 752095)
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 22.87s (932.34ms CPU time)
+
+Ran 1 test suite in 22.87s (22.87s CPU time): 1 tests passed, 0 failed, 0 skipped (1 total tests)
+bash-5.2$ 
+
+```
