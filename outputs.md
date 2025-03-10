@@ -281,9 +281,9 @@ Ran 1 test suite in 283.16ms (15.69ms CPU time): 1 tests passed, 0 failed, 0 ski
 - Puppet V3
 
 ```shell
-bash-5.2$ export MAINNET_FORKING_URL=https://mainnet.infura.io/v3/07251588d0234f009a72d2ff44be9c77
+bash-5.2$ export MAINNET_FORKING_URL=https://mainnet.infura.io/v3/YOUR_API_KEY
 bash-5.2$    echo $MAINNET_FORKING_URL
-https://mainnet.infura.io/v3/07251588d0234f009a72d2ff44be9c77
+https://mainnet.infura.io/v3/YOUR_API_KEY
 bash-5.2$ forge test test/puppet-v3/PuppetV3.t.sol --mt test_puppetV3
 [⠒] Compiling...
 No files changed, compilation skipped
