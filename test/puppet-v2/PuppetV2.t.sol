@@ -94,9 +94,7 @@ contract PuppetV2Challenge is Test {
         assertEq(lendingPool.calculateDepositOfWETHRequired(POOL_INITIAL_TOKEN_BALANCE), 300000 ether);
     }
 
-    /**
-     * CODE YOUR SOLUTION HERE
-     */
+
     function test_puppetV2() public checkSolvedByPlayer 
     {
         token.approve(address(uniswapV2Router), type(uint256).max);

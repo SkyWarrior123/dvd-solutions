@@ -89,9 +89,6 @@ contract PuppetChallenge is Test {
         assertEq(lendingPool.calculateDepositRequired(POOL_INITIAL_TOKEN_BALANCE), POOL_INITIAL_TOKEN_BALANCE * 2);
     }
 
-    /**
-     * CODE YOUR SOLUTION HERE
-     */
     function test_puppet() public checkSolvedByPlayer {
         Attack attack = new Attack{ value:PLAYER_INITIAL_ETH_BALANCE} (
             token,

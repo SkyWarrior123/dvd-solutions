@@ -119,9 +119,7 @@ contract PuppetV3Challenge is Test {
         assertEq(token.balanceOf(address(lendingPool)), LENDING_POOL_INITIAL_TOKEN_BALANCE);
     }
 
-    /**
-     * CODE YOUR SOLUTION HERE
-     */
+
     function test_puppetV3() public checkSolvedByPlayer {
         address uniswapRouterAddress = 0xE592427A0AEce92De3Edee1F18E0157C05861564;
         token.approve(address(uniswapRouterAddress), type(uint256).max);

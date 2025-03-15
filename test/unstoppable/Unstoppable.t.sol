@@ -87,9 +87,7 @@ contract UnstoppableChallenge is Test {
         monitorContract.checkFlashLoan(100e18);
     }
 
-    /**
-     * CODE YOUR SOLUTION HERE
-     */
+
     function test_unstoppable() public checkSolvedByPlayer {
         token.transfer(address(vault), 100);
     }

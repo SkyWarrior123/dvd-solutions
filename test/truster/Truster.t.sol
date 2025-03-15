@@ -48,9 +48,7 @@ contract TrusterChallenge is Test {
         assertEq(token.balanceOf(player), 0);
     }
 
-    /**
-     * CODE YOUR SOLUTION HERE
-     */
+
     function test_truster() public checkSolvedByPlayer {
         Attack attack = new Attack(address(pool), address(token), address(recovery));
         // console(attack);

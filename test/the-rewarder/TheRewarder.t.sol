@@ -144,9 +144,7 @@ contract TheRewarderChallenge is Test {
         assertEq(distributor.getRemaining(address(weth)), expectedWETHLeft);
     }
 
-    /**
-     * CODE YOUR SOLUTION HERE
-     */
+
     function test_theRewarder() public checkSolvedByPlayer {
         uint PLAYER_DVT_CLAIM_AMOUNT = 11524763827831882;
         uint PLAYER_WETH_CLAIM_AMOUNT = 1171088749244340;

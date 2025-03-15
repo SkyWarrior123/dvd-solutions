@@ -73,9 +73,6 @@ contract NaiveReceiverChallenge is Test {
         );
     }
 
-    /**
-     * CODE YOUR SOLUTION HERE
-     */
     function test_naiveReceiver() public checkSolvedByPlayer {
         bytes[] memory multiDataArr = new bytes[](11);
         for (uint i = 0; i < 10; i++) {

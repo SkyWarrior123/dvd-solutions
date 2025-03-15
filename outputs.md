@@ -296,3 +296,136 @@ Ran 1 test suite in 22.87s (22.87s CPU time): 1 tests passed, 0 failed, 0 skippe
 bash-5.2$ 
 
 ```
+
+- Shards
+
+
+```shell
+skywarrior@Sahbaazs-MacBook-Air damn-vulnerable-defi % forge test --match-path test/shards/Shards.t.sol -v --mt test_shards 
+
+[⠊] Compiling...
+No files changed, compilation skipped
+
+Ran 1 test for test/shards/Shards.t.sol:ShardsChallenge
+[PASS] test_shards() (gas: 823047632)
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 463.78ms (455.40ms CPU time)
+
+Ran 1 test suite in 468.02ms (463.78ms CPU time): 1 tests passed, 0 failed, 0 skipped (1 total tests)
+skywarrior@Sahbaazs-MacBook-Air damn-vulnerable-defi % 
+```
+
+- CurvyPuppet
+
+```shell
+bash-5.2$ forge test --match-path test/curvy-puppet/CurvyPuppet.t.sol --mt test_curvyPuppet
+[⠒] Compiling...
+[⠆] Compiling 1 files with Solc 0.8.25
+[⠔] Solc 0.8.25 finished in 3.33s
+Compiler run successful with warnings:
+Warning (2519): This declaration shadows an existing declaration.
+   --> test/curvy-puppet/CurvyPuppet.t.sol:523:9:
+    |
+523 |         uint256[] memory amounts = new uint256[](1);
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^
+Note: The shadowed declaration is here:
+   --> test/curvy-puppet/CurvyPuppet.t.sol:514:9:
+    |
+514 |         uint256[] memory amounts,
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (5667): Unused function parameter. Remove or comment out the variable name to silence this warning.
+   --> test/curvy-puppet/CurvyPuppet.t.sol:513:9:
+    |
+513 |         address[] memory assets,
+    |         ^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (5667): Unused function parameter. Remove or comment out the variable name to silence this warning.
+   --> test/curvy-puppet/CurvyPuppet.t.sol:514:9:
+    |
+514 |         uint256[] memory amounts,
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (5667): Unused function parameter. Remove or comment out the variable name to silence this warning.
+   --> test/curvy-puppet/CurvyPuppet.t.sol:515:9:
+    |
+515 |         uint256[] memory premiums,
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (5667): Unused function parameter. Remove or comment out the variable name to silence this warning.
+   --> test/curvy-puppet/CurvyPuppet.t.sol:516:9:
+    |
+516 |         address initiator,
+    |         ^^^^^^^^^^^^^^^^^
+
+Warning (5667): Unused function parameter. Remove or comment out the variable name to silence this warning.
+   --> test/curvy-puppet/CurvyPuppet.t.sol:517:9:
+    |
+517 |         bytes memory params
+    |         ^^^^^^^^^^^^^^^^^^^
+
+Warning (5667): Unused function parameter. Remove or comment out the variable name to silence this warning.
+   --> test/curvy-puppet/CurvyPuppet.t.sol:531:9:
+    |
+531 |         address[] memory tokens,
+    |         ^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (5667): Unused function parameter. Remove or comment out the variable name to silence this warning.
+   --> test/curvy-puppet/CurvyPuppet.t.sol:532:9:
+    |
+532 |         uint256[] memory amounts,
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (5667): Unused function parameter. Remove or comment out the variable name to silence this warning.
+   --> test/curvy-puppet/CurvyPuppet.t.sol:533:9:
+    |
+533 |         uint256[] memory feeAmounts,
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (5667): Unused function parameter. Remove or comment out the variable name to silence this warning.
+   --> test/curvy-puppet/CurvyPuppet.t.sol:534:9:
+    |
+534 |         bytes memory userData
+    |         ^^^^^^^^^^^^^^^^^^^^^
+
+
+Ran 1 test for test/curvy-puppet/CurvyPuppet.t.sol:CurvyPuppetChallenge
+[PASS] test_curvyPuppet() (gas: 2872168)
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 12.83s (8.30s CPU time)
+
+Ran 1 test suite in 12.84s (12.83s CPU time): 1 tests passed, 0 failed, 0 skipped (1 total tests)
+```
+
+- Climber.sol
+
+```shell
+Sahbaazs-MacBook-Air:damn-vulnerable-defi skywarrior$ forge test test/climber/Climber.t.sol 
+[⠊] Compiling...
+[⠒] Compiling 2 files with Solc 0.8.25
+[⠘] Solc 0.8.25 finished in 1.61s
+Compiler run successful!
+
+Ran 2 tests for test/climber/Climber.t.sol:ClimberChallenge
+[PASS] test_assertInitialState() (gas: 63711)
+[PASS] test_climber() (gas: 2432687)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 7.94ms (1.87ms CPU time)
+
+Ran 1 test suite in 178.77ms (7.94ms CPU time): 2 tests passed, 0 failed, 0 skipped (2 total tests)
+```
+
+- FreeRider.sol
+
+```shell
+bash-5.2$ forge test test/free-rider/FreeRider.t.sol -vv
+[⠊] Compiling...
+No files changed, compilation skipped
+
+Ran 2 tests for test/free-rider/FreeRider.t.sol:FreeRiderChallenge
+[PASS] test_assertInitialState() (gas: 82197)
+[PASS] test_freeRider() (gas: 1166572)
+Logs:
+  balance of attacker: 45055 ETH
+
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 6.60ms (1.02ms CPU time)
+
+Ran 1 test suite in 249.56ms (6.60ms CPU time): 2 tests passed, 0 failed, 0 skipped (2 total tests)
+```

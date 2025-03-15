@@ -72,9 +72,7 @@ contract CompromisedChallenge is Test {
         assertEq(nft.rolesOf(address(exchange)), nft.MINTER_ROLE());
     }
 
-    /**
-     * CODE YOUR SOLUTION HERE
-     */
+
     function test_compromised() public checkSolved {
         Attack attack = new Attack{value: address(this).balance}
         (

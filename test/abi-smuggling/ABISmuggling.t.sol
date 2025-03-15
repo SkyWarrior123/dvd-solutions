@@ -70,9 +70,7 @@ contract ABISmugglingChallenge is Test {
         vault.withdraw(address(token), player, 1e18);
     }
 
-    /**
-     * CODE YOUR SOLUTION HERE
-     */
+
     function test_abiSmuggling() public checkSolvedByPlayer {
         Attack attack = new Attack(
             address(vault),

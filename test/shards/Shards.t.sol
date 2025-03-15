@@ -11,6 +11,7 @@ import {
     DamnValuableNFT
 } from "../../src/shards/ShardsNFTMarketplace.sol";
 import {DamnValuableStaking} from "../../src/DamnValuableStaking.sol";
+import { Attack } from "./Attack.t.sol";
 
 contract ShardsChallenge is Test {
     address deployer = makeAddr("deployer");
@@ -114,7 +115,10 @@ contract ShardsChallenge is Test {
      * CODE YOUR SOLUTION HERE
      */
     function test_shards() public checkSolvedByPlayer {
-        
+        Attack attack = new Attack(marketplace, token, recovery);
+        attack.attack(1);
+
+        console.log("recovery balance of", token.balanceOf(address(recovery)));
     }
 
     /**

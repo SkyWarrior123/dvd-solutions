@@ -42,9 +42,7 @@ contract SideEntranceChallenge is Test {
         assertEq(player.balance, PLAYER_INITIAL_ETH_BALANCE);
     }
 
-    /**
-     * CODE YOUR SOLUTION HERE
-     */
+
     function test_sideEntrance() public checkSolvedByPlayer {
         Attack attack = new Attack(address(pool), address(recovery), ETHER_IN_POOL);
         attack.attack();

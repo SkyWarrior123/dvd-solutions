@@ -59,9 +59,7 @@ contract SelfieChallenge is Test {
         assertEq(pool.flashFee(address(token), 0), 0);
     }
 
-    /**
-     * CODE YOUR SOLUTION HERE
-     */
+
     function test_selfie() public checkSolvedByPlayer {
         Attack attack = new Attack(
             address(pool),
